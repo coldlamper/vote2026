@@ -13,6 +13,10 @@ test('home renders election scope, lookup, races, candidates and referenda', () 
   assert.match(html, /Michael Dublin/);
   assert.match(html, /School bonds/);
   assert.match(html, /Skip to candidate guide/);
+  assert.match(html, /class="candidate-detail"/);
+  assert.match(html, /Age/);
+  assert.match(html, /What a yes vote does/);
+  assert.doesNotMatch(html, /overflow-x:auto/);
 });
 
 test('candidate page has back link, positions and sources', () => {

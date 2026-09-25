@@ -4,3 +4,20 @@
 @media(max-width:760px){.intro{grid-template-columns:1fr;padding-top:3rem}.date-card{max-width:260px}.notice{grid-template-columns:1fr}.schedule dl{grid-template-columns:1fr 1fr}.race-heading{display:block}.vote-for{display:inline-block}.referenda-grid{grid-template-columns:1fr}.profile-hero{grid-template-columns:110px 1fr;gap:1rem}.profile-hero .portrait,.profile-hero .portrait-fallback{width:110px;height:132px}.profile-layout{grid-template-columns:1fr;gap:2rem}.top{display:none}}
 @media(max-width:430px){.schedule dl{grid-template-columns:1fr}.card-link{grid-template-columns:70px 1fr}.portrait,.portrait-fallback{width:70px;height:84px}.profile-hero{display:block}.profile-hero .portrait,.profile-hero .portrait-fallback{margin-bottom:1rem}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* Expanded voter guide treatment */
+:root{--navy:#17324d;--teal:#1d7a78;--teal-bright:#8ed6c9;--bg:#f6f4ef;--muted:#536878;--border:#d8dfdc;--sand:#f2cf86}
+.race-nav div{display:flex;flex-wrap:wrap;overflow:visible;gap:.55rem}
+.race-nav a{background:#fff;border-color:#b9cbc5;transition:background .15s ease,color .15s ease}
+.race-nav a:hover{background:var(--teal);color:#fff}
+.candidate-card{border-radius:.7rem;overflow:hidden;box-shadow:0 8px 24px rgba(23,50,77,.07)}
+.candidate-card .card-link{display:grid;align-items:start}
+.candidate-detail{color:var(--navy);font-size:.93rem}
+.candidate-detail h4{margin:1rem 0 .2rem;color:var(--teal);font-size:.95rem;text-transform:uppercase;letter-spacing:.04em}
+.candidate-detail p{margin:.3rem 0;color:var(--muted)}
+.candidate-detail ul{margin:.3rem 0;padding-left:1.15rem;color:var(--muted)}
+.candidate-detail .citation{font-size:.7rem}
+.referenda article{background:#214c5b;border-radius:.7rem;box-shadow:0 8px 24px rgba(23,50,77,.1)}
+.referendum-detail{border-top:1px solid rgba(255,255,255,.25);border-bottom:1px solid rgba(255,255,255,.25);margin:1rem 0;padding:.5rem 0}
+.referendum-detail h4{margin:.9rem 0 .15rem;color:var(--teal-bright);font-size:.95rem}
+.referendum-detail p{margin:.2rem 0;color:#f1f7f4}
