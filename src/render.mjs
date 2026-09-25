@@ -9,9 +9,12 @@ function citations(ids, sources) {
   }).join(' ');
 }
 
-function portrait(candidate, prefix = '') {
-  if (candidate.photo) return `<img class="portrait" src="${prefix}${escapeHtml(candidate.photo.path)}" alt="Portrait of ${escapeHtml(candidate.name)}">`;
-  return `<div class="portrait-fallback" aria-label="No verified photo available for ${escapeHtml(candidate.name)}">${initials(candidate.name)}</div>`;
+function portrait(candidate, prefix = '', showCredit = false) {
+  if (candidate.photo) {
+    const image = `<img class="portrait" src="${prefix}${escapeHtml(candidate.photo.path)}" alt="Portrait of ${escapeHtml(candidate.name)}">`;
+    return showCredit ? `<figure class="profile-photo">${image}<figcaption>${escapeHtml(candidate.photo.credit)} · <a href="${escapeHtml(candidate.photo.sourceUrl)}">${escapeHtml(candidate.photo.reuseBasis)}</a></figcaption></figure>` : image;
+  }
+  return `<div class="portrait-fallback" aria-label="No verified photo available for ${escapeHtml(candidate.name)}">${escapeHtml(initials(candidate.name))}</div>`;
 }
 
 function frame({title, description, body, depth = 0}) {
@@ -35,7 +38,7 @@ export function renderHome(data) {
   }).join('');
   const nav = data.races.map((race) => `<a href="#${race.id}">${escapeHtml(race.name)}</a>`).join('');
   const referenda = data.referenda.map((item) => `<article><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.summary)}</p><p>${citations(item.sourceIds, sources)}</p></article>`).join('');
-  const voting = data.voting.map((item) => `<div><dt>${escapeHtml(item.label)}</dt><dd>${escapeHtml(item.value)}</dd></div>`).join('');
+  const voting = data.voting.map((item) => `<div><dt>${escapeHtml(item.label)}</dt><dd>${escapeHtml(item.value)}</dd><small>${citations(item.sourceIds, sources)}</small></div>`).join('');
   const body = `<header class="masthead"><div class="masthead-inner"><a class="brand" href="./index.html"><span class="brand-mark">CB</span><span>Carolina Beach Votes</span></a><a class="lookup top" href="${escapeHtml(data.site.ballotLookupUrl)}" target="_blank" rel="noopener">Check your ballot</a></div></header>
   <main id="main"><section class="intro"><div><p class="kicker">Nonpartisan voter guide · ${escapeHtml(data.site.ballotStyle)}</p><h1>Know what’s on your Carolina Beach ballot.</h1><p class="dek">Every candidate and question on the November 3 ballot for precinct FP08, with sourced profiles and plain-language context.</p></div><div class="date-card"><span>Election Day</span><strong>Nov. 3</strong><small>Polls 6:30 a.m.–7:30 p.m.</small></div></section>
   <div class="notice"><strong>Before you vote</strong><p>${escapeHtml(data.site.notice)}</p><a class="lookup" href="${escapeHtml(data.site.ballotLookupUrl)}" target="_blank" rel="noopener">Open official voter lookup</a></div>
@@ -58,7 +61,7 @@ export function renderCandidate(data, candidate) {
   const sourceList = used.map((id) => { const s=sources.get(id); return `<li><a href="${escapeHtml(s.url)}" target="_blank" rel="noopener">${escapeHtml(s.title)}</a><span>${escapeHtml(s.publisher)} · reviewed ${escapeHtml(s.reviewedAt)}</span></li>`; }).join('');
   const body = `<header class="masthead"><div class="masthead-inner"><a class="brand" href="../../index.html"><span class="brand-mark">CB</span><span>Carolina Beach Votes</span></a></div></header>
   <main id="main" class="profile"><a class="back" href="../../index.html#${race.id}">Back to ${escapeHtml(race.name)}</a>
-  <section class="profile-hero">${portrait(candidate, '../../')}<div><p class="party">${escapeHtml(candidate.party)} · ${escapeHtml(race.name)}</p><h1>${escapeHtml(candidate.name)}</h1><p class="dek">${escapeHtml(candidate.summary)}</p><p class="reviewed">Information reviewed ${escapeHtml(candidate.reviewedAt)}</p></div></section>
+  <section class="profile-hero">${portrait(candidate, '../../', true)}<div><p class="party">${escapeHtml(candidate.party)} · ${escapeHtml(race.name)}</p><h1>${escapeHtml(candidate.name)}</h1><p class="dek">${escapeHtml(candidate.summary)}</p><p class="reviewed">Information reviewed ${escapeHtml(candidate.reviewedAt)}</p></div></section>
   <div class="profile-layout"><div><section><h2>Background</h2>${bio}</section><section><h2>Positions and record</h2><div class="positions">${claims}</div>${record ? `<h2>Public record</h2><ul>${record}</ul>` : ''}</section></div>
   <aside><h2>About this race</h2><p>${escapeHtml(race.description)}</p><p><strong>You may vote for ${race.voteFor === 1 ? 'one' : race.voteFor}.</strong></p><a class="lookup" href="${escapeHtml(data.site.ballotLookupUrl)}" target="_blank" rel="noopener">Confirm your ballot</a></aside></div>
   <section class="sources"><h2>Sources</h2><ol>${sourceList}</ol></section></main>

@@ -40,6 +40,20 @@ test('candidate without a photo receives an initials portrait', () => {
   assert.match(html, />MA</);
 });
 
+test('fallback initials are escaped', () => {
+  const candidate = structuredClone(fixture.candidates[0]);
+  candidate.name = '<script> Example';
+  const html = renderCandidate(fixture, candidate);
+  assert.doesNotMatch(html, /<script>/);
+  assert.match(html, /&lt;E/);
+});
+
+test('voting dates cite the official election source', () => {
+  const html = renderHome(fixture);
+  const schedule = html.slice(html.indexOf('class="schedule"'), html.indexOf('class="race-nav"'));
+  assert.match(schedule, /New Hanover County Board of Elections/);
+});
+
 test('home orders candidates alphabetically within each race', () => {
   const html = renderHome(fixture);
   const senate = html.slice(html.indexOf('id="us-senate"'), html.indexOf('id="us-house-7"'));

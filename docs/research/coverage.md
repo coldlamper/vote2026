@@ -19,7 +19,7 @@ Regular Carolina Beach mayor and town-council contests are excluded because the 
 
 ## Editorial limits
 
-The official ballot establishes candidacy, but many lower-profile campaigns do not publish detailed, readily verifiable platforms. Where a candidate's public information was sparse, the guide says so instead of inferring views from party affiliation. Judicial profiles point readers to the State Board's official judicial guide. Candidate photographs are not bundled in the initial release because a consistent set with clear reuse permission could not be verified for every candidate; the design uses prominent initials as an honest fallback. This is a material limitation and should be revisited when campaigns provide reusable press photos.
+The official ballot establishes candidacy, but many lower-profile campaigns do not publish detailed, readily verifiable platforms. Where a candidate's public information was sparse, the guide says so instead of inferring views from party affiliation. Judicial profiles point readers to the State Board's official judicial guide. Three reusable portraits with clear licensing were located for this release: Roy Cooper, Michael Whatley and David Rouzer. The remaining candidate profiles use prominent initials because clear reuse permission was not verified during this review. More portraits should be added as campaigns publish reusable press photos.
 
 ## Primary evidence
 
