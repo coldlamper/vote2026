@@ -102,7 +102,7 @@
     {"title":"Photo identification amendment","summary":"Would require all voters, including absentee voters, to present photo identification before voting.","sourceIds":["nhc-ballot"]},
     {"title":"Income-tax cap amendment","summary":"Would prevent the state income-tax rate from being raised above 3.5 percent.","sourceIds":["nhc-ballot"]},
     {"title":"Property-tax limits amendment","summary":"Would require limits on property-tax increases by local governments.","sourceIds":["nhc-ballot"]},
-    {"title":"New Hanover County school bonds","summary":"Would authorize $320.525 million in school-facility bonds. The ballot estimates $500.378 million in principal and interest and a $5 annual property-tax increase per $100,000 of value, including anticipated endowment grants.","sourceIds":["nhc-ballot"]}
+    {"title":"School bonds — New Hanover County","summary":"Would authorize $320.525 million in school-facility bonds. The ballot estimates $500.378 million in principal and interest and a $5 annual property-tax increase per $100,000 of value, including anticipated endowment grants.","sourceIds":["nhc-ballot"]}
   ],
   "voting": [
     {"label":"Registration deadline","value":"October 9, 2026"},

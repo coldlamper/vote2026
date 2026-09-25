@@ -1,0 +1,11 @@
+{
+  "name": "carolina-beach-votes-2026",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/check-output.mjs"
+  },
+  "engines": {"node": ">=22"}
+}
