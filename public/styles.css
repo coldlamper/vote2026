@@ -21,3 +21,13 @@
 .referendum-detail{border-top:1px solid rgba(255,255,255,.25);border-bottom:1px solid rgba(255,255,255,.25);margin:1rem 0;padding:.5rem 0}
 .referendum-detail h4{margin:.9rem 0 .15rem;color:var(--teal-bright);font-size:.95rem}
 .referendum-detail p{margin:.2rem 0;color:#f1f7f4}
+
+/* Candidate cards keep identity separate from the research below it. */
+.candidate-grid{grid-template-columns:repeat(3,minmax(0,1fr));align-items:start}
+.candidate-card{min-height:0;padding:1.25rem}
+.candidate-card .card-link{display:block;padding:0}
+.candidate-top{display:grid;grid-template-columns:82px minmax(0,1fr);gap:1rem;align-items:start;padding-bottom:1rem;border-bottom:1px solid var(--border)}
+.candidate-top h3{margin:0 0 .2rem}.candidate-top .party{margin:.1rem 0 .45rem}.candidate-top>div>p:last-child{margin:0;color:var(--muted)}
+.candidate-details{padding-top:1rem;color:var(--muted);font-size:.94rem}.candidate-details h4{margin:1.1rem 0 .25rem;color:var(--teal);font-size:.92rem;letter-spacing:.02em}.candidate-details p{margin:.35rem 0}.candidate-details ul{margin:.4rem 0;padding-left:1.1rem}.candidate-age{color:var(--navy)}
+@media(max-width:980px){.candidate-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){.candidate-grid{grid-template-columns:1fr}.candidate-top{grid-template-columns:70px minmax(0,1fr)}.candidate-top .portrait,.candidate-top .portrait-fallback{width:70px;height:84px}}
