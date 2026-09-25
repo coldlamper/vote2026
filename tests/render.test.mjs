@@ -50,6 +50,7 @@ test('candidate without a photo receives an initials portrait', () => {
 test('fallback initials are escaped', () => {
   const candidate = structuredClone(fixture.candidates[0]);
   candidate.name = '<script> Example';
+  delete candidate.photo;
   const html = renderCandidate(fixture, candidate);
   assert.doesNotMatch(html, /<script>/);
   assert.match(html, /&lt;E/);
