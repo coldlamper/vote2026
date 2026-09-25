@@ -68,3 +68,9 @@ test('home orders candidates alphabetically within each race', () => {
   assert.ok(senate.indexOf('Michael Dublin') < senate.indexOf('Roy Cooper'));
   assert.ok(senate.indexOf('Roy Cooper') < senate.indexOf('Shannon W. Bray'));
 });
+
+test('race navigation scrolls with the page on mobile', async () => {
+  const css = await readFile(new URL('../public/styles.css', import.meta.url), 'utf8');
+  const raceNavRules = css.match(/\.race-nav\{[^}]*\}/g) || [];
+  assert.ok(raceNavRules.some((rule) => /position:static/.test(rule)));
+});

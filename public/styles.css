@@ -7,6 +7,7 @@
 
 /* Expanded voter guide treatment */
 :root{--navy:#17324d;--teal:#1d7a78;--teal-bright:#8ed6c9;--bg:#f6f4ef;--muted:#536878;--border:#d8dfdc;--sand:#f2cf86}
+.race-nav{position:static}
 .race-nav div{display:flex;flex-wrap:wrap;overflow:visible;gap:.55rem}
 .race-nav a{background:#fff;border-color:#b9cbc5;transition:background .15s ease,color .15s ease}
 .race-nav a:hover{background:var(--teal);color:#fff}
